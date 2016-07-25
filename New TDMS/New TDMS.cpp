@@ -10,6 +10,11 @@
 #include "nilibddc.h"
 #include <stdlib.h>
 #include <stdio.h>
+#include <iostream>
+#include <fstream>
+#include <string>
+#include <iomanip>
+#include <vector>
 
 //-----------------------------------------------------------------------------
 // Macros
@@ -42,14 +47,16 @@ int main(int argc, char *argv[])
 	int	ddcError = 0;
 	
 	ddcChk(ReadFile());
-
+	
 Error:
 	if (ddcError < 0)
 		printf("\nError: %s\n", DDC_GetLibraryErrorDescription(ddcError));
 	else
 		printf("\nNo errors.\n");
 	printf("End of program, press Enter key to quit\n");
+
 	getchar();
+
 	return 0;
 }
 
@@ -238,4 +245,3 @@ double GetAvgDataValue(unsigned __int64 numDataValues, double *data)
 
 	return sum / (unsigned int)numDataValues;
 }
-
